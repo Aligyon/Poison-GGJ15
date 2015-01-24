@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerInput : MonoBehaviour {
 
+    public float hp = 100f;
+
     public PhysicsMaterial2D groundedmat;
     public PhysicsMaterial2D airbornemat;
 
@@ -26,6 +28,7 @@ public class PlayerInput : MonoBehaviour {
     public string ropebutton;
     public string forcebutton;
     public string grabbutton;
+    public string drinkbutton;
 
     public float moveforce;
     public float forceforce;
@@ -33,6 +36,10 @@ public class PlayerInput : MonoBehaviour {
     public float acceleration;
     public float maxSpeed;
     public float jumpstrength;
+    public float drinktime = 3f;
+
+    public bool hasAntidote = false;
+    public Transform antidote;
 
     // // // // // // 
     Vector2 force;
@@ -43,6 +50,10 @@ public class PlayerInput : MonoBehaviour {
     bool forcing = false;
     bool ropeactive = false;
     bool grabbing = false;
+    bool drinking = false;
+
+    Vector2 drinkpos;
+    float drinkprogress = 0;
 
     Transform grabobject;
     Vector2 grabpoint;
@@ -51,6 +62,7 @@ public class PlayerInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        drinkpos = new Vector2(0, 0);
         grounddir = new Vector2(0, 0);
         grabpos = new Vector2(0, 0);
         grabpoint = new Vector2(0, 0);
@@ -61,6 +73,8 @@ public class PlayerInput : MonoBehaviour {
         jumpcd -= Time.deltaTime;
         forcecd -= Time.deltaTime;
 
+        if (drinking) { drinkprogress += Time.deltaTime; grabbing = false; }
+
         if (Input.GetButtonDown(jumpbutton) && grounded && (jumpcd <= 0f)) {
             jump = true;
         }
@@ -68,12 +82,10 @@ public class PlayerInput : MonoBehaviour {
             forcing = true;
         }
         if (grabbing) {
-            
-            Debug.Log(grabpos);
-            Vector2 worldpos = ((Vector2)grabobject.position) + grabpos;
-            Debug.DrawRay(player.position, worldpos-(Vector2)player.position , Color.red);
 
-            
+            Vector2 worldpos = ((Vector2)grabobject.position) + grabpos;
+            //Debug.DrawRay(player.position, worldpos-(Vector2)player.position , Color.red);
+
 
             player.position = Vector2.Lerp(player.position,worldpos,Time.deltaTime*7);
             player.rigidbody2D.velocity = new Vector2(0,0);
@@ -93,10 +105,14 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        CheckFooting();
+        Drink();
+
+        if (drinking) { return; }
+        
         Rope();
         Grab();
         Force();
-        CheckFooting();
         Move();
         Jump();
         
@@ -114,6 +130,8 @@ public class PlayerInput : MonoBehaviour {
         if (grounddir.magnitude > 0) force = grounddir*xinput;
         else force.x = xinput;
         force = force * acceleration;
+
+        hp -= (force.magnitude*Time.fixedDeltaTime*0.002f);
         //force = Vector3.ClampMagnitude(force, acceleration);
 
         //Debug.Log (Time.fixedDeltaTime);
@@ -151,6 +169,7 @@ public class PlayerInput : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpstrength * rb.mass);
             jump = false;
             jumpcd = jumpcooldown;
+            hp -= 0.5f;
         }
 
     }
@@ -263,6 +282,7 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetButton(grabbutton)) {
 
             if (grabbing) {
+                hp -= (Time.fixedDeltaTime * 0.1f);
                 return;
             }
 
@@ -318,13 +338,37 @@ public class PlayerInput : MonoBehaviour {
             if (Vector2.Distance(otherplayer.transform.position, player.position) < 2f) {
                 Vector2 dir = otherplayer.transform.position - player.position;
                 otherplayer.rigidbody2D.AddForce(dir*forceforce);
+                
+                PlayerInput p = (PlayerInput)otherplayer.GetComponent(typeof(PlayerInput));
+                if(p.hasAntidote) p.DropAntidote(dir*forceforce);
             }
             Transform effect;
             effect = (Transform)Instantiate(forceEffect, player.position, Quaternion.identity);
 
             forcecd = forcecooldown;
             forcing = false;
+
+            hp -= 0.5f;
         }
+    }
+    void Drink() {
+
+        if (drinking) {
+            if (drinkprogress >= drinktime) Application.LoadLevel(0);
+            if (Vector2.Distance(drinkpos, player.position) > 0.1f) {
+                drinking = false;
+                DropAntidote(player.rigidbody2D.velocity*20);
+            }
+
+        }
+        if (Input.GetButton(drinkbutton) && hasAntidote) {
+            if (player.rigidbody2D.velocity.magnitude < 0.2f) {
+                drinkpos = player.position;
+                drinking = true;
+            }
+        }
+
+
     }
 
     RaycastHit2D GrabRay(Vector2 pos, Vector2 dir) {
@@ -332,5 +376,28 @@ public class PlayerInput : MonoBehaviour {
         //Debug.DrawRay(pos, dir * 0.8f, Color.cyan, 1f);
         return hit;
     }
+    public void DropAntidote(Vector2 f) {
 
+        antidote.position = player.position;
+
+        antidote.gameObject.SetActive(true);
+        
+        //antidote.rigidbody2D.AddForce( (player.rigidbody2D.velocity.normalized + player.rigidbody2D.velocity/5)*100*antidote.rigidbody2D.mass );
+        //antidote.rigidbody2D.velocity = (player.rigidbody2D.velocity.normalized + player.rigidbody2D.velocity / 5) * 100 * antidote.rigidbody2D.mass;
+        //Debug.Log((player.rigidbody2D.velocity.normalized + player.rigidbody2D.velocity / 5) * 100 * antidote.rigidbody2D.mass);
+
+        antidote.rigidbody2D.AddForce(f * antidote.rigidbody2D.mass * 2);
+
+        Antidote a; a = (Antidote)antidote.GetComponent(typeof(Antidote));
+
+        a.SetInactiveTime(1f);
+        hasAntidote = false;
+
+    }
+    public void PickUpAntidote(Transform a) {
+        antidote = a;
+        a.gameObject.SetActive(false);
+        hasAntidote = true;
+
+    }
 }
