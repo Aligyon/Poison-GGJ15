@@ -69,6 +69,8 @@ public class PlayerInput : MonoBehaviour {
 	}
 
     void Update() {
+        
+        if (hp <= 0) Application.LoadLevel(0);
 
         jumpcd -= Time.deltaTime;
         forcecd -= Time.deltaTime;
@@ -131,7 +133,7 @@ public class PlayerInput : MonoBehaviour {
         else force.x = xinput;
         force = force * acceleration;
 
-        hp -= (force.magnitude*Time.fixedDeltaTime*0.002f);
+        hp -= (force.magnitude*Time.fixedDeltaTime*0.0016f);
         //force = Vector3.ClampMagnitude(force, acceleration);
 
         //Debug.Log (Time.fixedDeltaTime);
@@ -169,7 +171,7 @@ public class PlayerInput : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpstrength * rb.mass);
             jump = false;
             jumpcd = jumpcooldown;
-            hp -= 0.5f;
+            hp -= 0.4f;
         }
 
     }
@@ -348,7 +350,7 @@ public class PlayerInput : MonoBehaviour {
             forcecd = forcecooldown;
             forcing = false;
 
-            hp -= 0.5f;
+            hp -= 0.4f;
         }
     }
     void Drink() {
@@ -400,4 +402,5 @@ public class PlayerInput : MonoBehaviour {
         hasAntidote = true;
 
     }
+
 }
