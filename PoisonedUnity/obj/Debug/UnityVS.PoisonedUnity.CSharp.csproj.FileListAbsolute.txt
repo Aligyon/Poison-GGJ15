@@ -1,0 +1,9 @@
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\UnityEditor.dll
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\UnityEngine.dll
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\UnityEngine.xml
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\Temp\UnityVS_bin\Debug\UnityEditor.xml
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\obj\Debug\UnityVS.PoisonedUnity.CSharp.csprojResolveAssemblyReference.cache
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\obj\Debug\Assembly-CSharp.dll
+D:\Projects\Poisoned\Poison-GGJ15\PoisonedUnity\obj\Debug\Assembly-CSharp.pdb
