@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour {
     public SpringJoint2D grab;
     public PlayerInput otherplayer;
     public Transform forceEffect;
+    public LineRenderer linerenderer;
 
     float jumpcooldown = 0.15f;
     float jumpcd = 0;
@@ -269,7 +270,8 @@ public class PlayerInput : MonoBehaviour {
                 tie.enabled = true;
                 ropeactive = true; 
             }
-            Debug.DrawLine(player.position, otherplayer.transform.position, Color.blue);
+            //Debug.DrawLine(player.position, otherplayer.transform.position, Color.blue);
+            linerenderer.
 
         }
         else {
