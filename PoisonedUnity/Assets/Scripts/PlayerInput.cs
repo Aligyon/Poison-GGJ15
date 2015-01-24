@@ -70,6 +70,8 @@ public class PlayerInput : MonoBehaviour {
 	}
 
     void Update() {
+
+        if (tie.enabled) UpdateRope(); else linerenderer.enabled = false;
         
         if (hp <= 0) Application.LoadLevel(0);
 
@@ -271,7 +273,6 @@ public class PlayerInput : MonoBehaviour {
                 ropeactive = true; 
             }
             //Debug.DrawLine(player.position, otherplayer.transform.position, Color.blue);
-            linerenderer.
 
         }
         else {
@@ -402,6 +403,13 @@ public class PlayerInput : MonoBehaviour {
         antidote = a;
         a.gameObject.SetActive(false);
         hasAntidote = true;
+
+    }
+    void UpdateRope() {
+
+        linerenderer.enabled = true;
+        linerenderer.SetPosition(0, player.position);
+        linerenderer.SetPosition(1, otherplayer.transform.position);
 
     }
 
