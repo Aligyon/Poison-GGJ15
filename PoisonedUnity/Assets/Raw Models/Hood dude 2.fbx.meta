@@ -70,6 +70,11 @@ ModelImporter:
     7400010: RunLeft
     7400012: Falling
     7400014: GrabSide
+    7400016: GrabUp
+    7400018: GrabDown
+    7400020: Drinking
+    7400022: Death
+    7400024: Force
     9500000: //RootNode
     13700000: polySurface31
   materials:
@@ -91,7 +96,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 200
+      lastFrame: 175
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -680,6 +685,426 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 154
       lastFrame: 155
+      wrapMode: 0
+      orientationOffsetY: 90
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: J_ROOT
+        weight: 1
+      - path: J_ROOT/J_Lshoulder
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1/J_Lhand2
+        weight: 1
+      - path: J_ROOT/J_neck1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1/J_head2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1/J_Rhand2
+        weight: 1
+      - path: J_ROOT/J_Spine1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2/J_Lfoot3
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2/J_Rfoot3
+        weight: 1
+      - path: polySurface31
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: GrabUp
+      takeName: Take 001
+      firstFrame: 157
+      lastFrame: 157.199997
+      wrapMode: 0
+      orientationOffsetY: 90
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: J_ROOT
+        weight: 1
+      - path: J_ROOT/J_Lshoulder
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1/J_Lhand2
+        weight: 1
+      - path: J_ROOT/J_neck1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1/J_head2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1/J_Rhand2
+        weight: 1
+      - path: J_ROOT/J_Spine1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2/J_Lfoot3
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2/J_Rfoot3
+        weight: 1
+      - path: polySurface31
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: GrabDown
+      takeName: Take 001
+      firstFrame: 159
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 90
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: J_ROOT
+        weight: 1
+      - path: J_ROOT/J_Lshoulder
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1/J_Lhand2
+        weight: 1
+      - path: J_ROOT/J_neck1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1/J_head2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1/J_Rhand2
+        weight: 1
+      - path: J_ROOT/J_Spine1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2/J_Lfoot3
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2/J_Rfoot3
+        weight: 1
+      - path: polySurface31
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Drinking
+      takeName: Take 001
+      firstFrame: 139
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: J_ROOT
+        weight: 1
+      - path: J_ROOT/J_Lshoulder
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1/J_Lhand2
+        weight: 1
+      - path: J_ROOT/J_neck1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1/J_head2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1/J_Rhand2
+        weight: 1
+      - path: J_ROOT/J_Spine1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2/J_Lfoot3
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2/J_Rfoot3
+        weight: 1
+      - path: polySurface31
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Death
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: J_ROOT
+        weight: 1
+      - path: J_ROOT/J_Lshoulder
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1
+        weight: 1
+      - path: J_ROOT/J_Lshoulder/J_Larm1/J_Larm2/J_Lhand1/J_Lhand2
+        weight: 1
+      - path: J_ROOT/J_neck1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1
+        weight: 1
+      - path: J_ROOT/J_neck1/J_head1/J_head2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1
+        weight: 1
+      - path: J_ROOT/J_Rshoulder/J_Rarm1/J_Rarm2/J_Rhand1/J_Rhand2
+        weight: 1
+      - path: J_ROOT/J_Spine1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Lleg1/J_Lleg2/J_Lfoot1/J_Lfoot2/J_Lfoot3
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2
+        weight: 1
+      - path: J_ROOT/J_Spine1/J_Spine2/J_hip/J_Rleg1/J_Rleg2/J_Rfoot1/J_Rfoot2/J_Rfoot3
+        weight: 1
+      - path: polySurface31
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Force
+      takeName: Take 001
+      firstFrame: 62
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

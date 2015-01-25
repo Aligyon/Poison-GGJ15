@@ -20,11 +20,13 @@ public class PlayerInput : MonoBehaviour {
     public PlayerInput otherplayer;
     public Transform forceEffect;
     public LineRenderer linerenderer;
+    
 
     float jumpcooldown = 0.15f;
     float jumpcd = 0;
     float forcecooldown = 0.3f;
     float forcecd = 0;
+    float deathtimer = 5f;
 
 
     public string jumpbutton;
@@ -44,6 +46,7 @@ public class PlayerInput : MonoBehaviour {
 
     public bool hasAntidote = false;
     public Transform antidote;
+    public Transform hand;
 
     // // // // // // 
     Vector2 force;
@@ -55,6 +58,7 @@ public class PlayerInput : MonoBehaviour {
     bool ropeactive = false;
     bool grabbing = false;
     bool drinking = false;
+    bool death = false;
 
     Vector2 drinkpos;
     float drinkprogress = 0;
@@ -63,6 +67,8 @@ public class PlayerInput : MonoBehaviour {
     Vector2 grabpoint;
     Vector2 grabpos;
     Vector2 grounddir;
+    Vector2 grabdiranim;
+
 
 	// Use this for initialization
 	void Start () {
@@ -70,15 +76,28 @@ public class PlayerInput : MonoBehaviour {
         grounddir = new Vector2(0, 0);
         grabpos = new Vector2(0, 0);
         grabpoint = new Vector2(0, 0);
+        grabdiranim = new Vector2(0, 0);
 	}
 
     void Update() {
 
+
         UpdateAnimation();
 
         if (tie.enabled) UpdateRope(); else linerenderer.enabled = false;
+
+        if (hp <= 0) { 
+            death = true;
+            if (hasAntidote) DropAntidote(player.rigidbody2D.velocity);
+        }
+
+        if (death) {
+            deathtimer -= Time.deltaTime;
+            if (deathtimer <= 0) Application.LoadLevel(0);
+            return;
+        }
         
-        if (hp <= 0) Application.LoadLevel(0);
+
 
         jumpcd -= Time.deltaTime;
         forcecd -= Time.deltaTime;
@@ -114,6 +133,8 @@ public class PlayerInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        if (death) return;
 
         CheckFooting();
         Drink();
@@ -400,6 +421,8 @@ public class PlayerInput : MonoBehaviour {
         antidote.rigidbody2D.AddForce(f * antidote.rigidbody2D.mass * 2);
 
         Antidote a; a = (Antidote)antidote.GetComponent(typeof(Antidote));
+        a.hand = null;
+        a.ToggleActive(true);
 
         a.SetInactiveTime(1f);
         hasAntidote = false;
@@ -407,7 +430,12 @@ public class PlayerInput : MonoBehaviour {
     }
     public void PickUpAntidote(Transform a) {
         antidote = a;
-        a.gameObject.SetActive(false);
+        //a.gameObject.SetActive(false);
+        
+        Antidote aa = (Antidote)a.GetComponent(typeof(Antidote));
+        aa.hand = hand;
+        aa.ToggleActive(false);
+
         hasAntidote = true;
 
     }
@@ -422,21 +450,24 @@ public class PlayerInput : MonoBehaviour {
 
         float xax = Input.GetAxis(xaxis);
 
+        anim.SetBool("death",death);
         anim.SetBool("grounded", grounded);
         anim.SetFloat("vspeed", player.rigidbody2D.velocity.y);
+        anim.SetBool("drinking", drinking);
 
+        if (death) return;
         if (grabbing) {
             anim.SetBool("grabbing", true);
 
-
-            Vector3 worldpos = (grabobject.position) + (Vector3)grabpos;
-            //Debug.DrawRay(player.position, worldpos-(Vector2)player.position , Color.red);
-
-            Vector3 bajs = worldpos - player.position;
-            Quaternion lookat = Quaternion.LookRotation(bajs, Vector3.up);
-            Debug.Log(lookat);
-            model.rotation = Quaternion.Lerp(model.rotation, lookat, Time.deltaTime * 5);
-
+            Vector3 worldpos = (grabobject.position) + (Vector3)grabpoint;
+            //worldpos -= (Vector3)grabpoint;
+            Debug.Log(grabpoint);
+            Vector3 dir = (worldpos - player.position).normalized;
+            anim.SetFloat("grabx", dir.x);
+            anim.SetFloat("graby", dir.y);
+            //Debug.DrawRay(player.position, worldpos-player.position , Color.red, 5f);
+            Debug.DrawLine(player.position, worldpos, Color.red, 2f);
+            //Debug.Log(dir);
             return;
 
         }
@@ -445,12 +476,10 @@ public class PlayerInput : MonoBehaviour {
         if (xax > 0.1f || xax < -0.1f) {
             Vector3 bajs = new Vector3(Input.GetAxis(xaxis), 0, 0);
             Quaternion lookat = Quaternion.LookRotation(bajs, Vector3.up);
-            Debug.Log(lookat);
+            //Debug.Log(lookat);
             model.rotation = Quaternion.Lerp(model.rotation, lookat, Time.deltaTime * 5);
         }
         
-        
-
         //Quaternion.LookRotation
     }
 
