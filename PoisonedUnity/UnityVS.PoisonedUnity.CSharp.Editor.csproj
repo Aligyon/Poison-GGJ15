@@ -5,15 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BA1C2069-22AF-47E6-9D00-3CCCC7FAC946}</ProjectGuid>
+    <ProjectGuid>{A6F0A9D5-71B8-4A39-0164-FD08D1496719}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace></RootNamespace>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -46,24 +46,48 @@
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WP8.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WP8.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Metro.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Metro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.BB10.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.BB10.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityVS.VersionSpecific">
+      <HintPath>Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Antidote.cs" />
-    <Compile Include="Assets\CameraScript.cs" />
-    <Compile Include="Assets\Cranemove.cs" />
-    <Compile Include="Assets\Door.cs" />
-    <Compile Include="Assets\Lifetime.cs" />
-    <Compile Include="Assets\Natural Bloom\Demo Scene\Scripts\SENBDLCameraAnimation.cs" />
-    <Compile Include="Assets\Natural Bloom\Demo Scene\Scripts\SENBDLGlobal.cs" />
-    <Compile Include="Assets\Natural Bloom\Demo Scene\Scripts\SENBDLGlowingOrbitingCube.cs" />
-    <Compile Include="Assets\Natural Bloom\Demo Scene\Scripts\SENBDLMainCube.cs" />
-    <Compile Include="Assets\Natural Bloom\Demo Scene\Scripts\SENBDLOrbitingCube.cs" />
-    <Compile Include="Assets\Natural Bloom\Scripts\SENaturalBloomAndDirtyLens.cs" />
-    <Compile Include="Assets\Scripts\PlayerInput.cs" />
-    <Compile Include="Assets\legacy\InputHandler.cs" />
+    <ProjectReference Include="UnityVS.PoisonedUnity.CSharp.csproj">
+      <Project>{BA1C2069-22AF-47E6-9D00-3CCCC7FAC946}</Project>
+      <Name>UnityVS.PoisonedUnity.CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Natural Bloom\Editor\SENaturalBloomAndDirtyLensEditor.cs" />
     <None Include="Assets\Natural Bloom\Shaders\SEEmissiveTextured.shader" />
     <None Include="Assets\Natural Bloom\Shaders\SENaturalBloomAndDirtyLens.shader" />
     <None Include="Assets\Natural Bloom\Shaders\SEParticlesAdditive.shader" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />
+    <None Include="Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
