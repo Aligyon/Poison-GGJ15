@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerInput : MonoBehaviour {
 
+    public Animator anim;
+    public Transform model;
+
     public float hp = 100f;
 
     public PhysicsMaterial2D groundedmat;
@@ -71,6 +74,8 @@ public class PlayerInput : MonoBehaviour {
 
     void Update() {
 
+        UpdateAnimation();
+
         if (tie.enabled) UpdateRope(); else linerenderer.enabled = false;
         
         if (hp <= 0) Application.LoadLevel(0);
@@ -126,6 +131,7 @@ public class PlayerInput : MonoBehaviour {
     void Move() {
 
         float xinput = Input.GetAxis(xaxis);
+        anim.SetFloat("xaxis", xinput);
 
         if (xinput == 0)
             return;
@@ -411,6 +417,41 @@ public class PlayerInput : MonoBehaviour {
         linerenderer.SetPosition(0, player.position);
         linerenderer.SetPosition(1, otherplayer.transform.position);
 
+    }
+    void UpdateAnimation() {
+
+        float xax = Input.GetAxis(xaxis);
+
+        anim.SetBool("grounded", grounded);
+        anim.SetFloat("vspeed", player.rigidbody2D.velocity.y);
+
+        if (grabbing) {
+            anim.SetBool("grabbing", true);
+
+
+            Vector3 worldpos = (grabobject.position) + (Vector3)grabpos;
+            //Debug.DrawRay(player.position, worldpos-(Vector2)player.position , Color.red);
+
+            Vector3 bajs = worldpos - player.position;
+            Quaternion lookat = Quaternion.LookRotation(bajs, Vector3.up);
+            Debug.Log(lookat);
+            model.rotation = Quaternion.Lerp(model.rotation, lookat, Time.deltaTime * 5);
+
+            return;
+
+        }
+        else anim.SetBool("grabbing", false);
+
+        if (xax > 0.1f || xax < -0.1f) {
+            Vector3 bajs = new Vector3(Input.GetAxis(xaxis), 0, 0);
+            Quaternion lookat = Quaternion.LookRotation(bajs, Vector3.up);
+            Debug.Log(lookat);
+            model.rotation = Quaternion.Lerp(model.rotation, lookat, Time.deltaTime * 5);
+        }
+        
+        
+
+        //Quaternion.LookRotation
     }
 
 }
